@@ -1,0 +1,3 @@
+variant,maps,gap_area_km2,gap_share_of_nsw_area_pct,nsw_population_grid_2025,population_in_uncovered_cells,share_of_nsw_population_in_uncovered_cells_pct,uncovered_populated_1km_cells,state_and_regional_road_length_km,state_and_regional_road_length_in_gap_km,road_share_in_gap_pct,nsw_hospital_reporting_units,hospital_reporting_units_in_gap
+three_carriers,telstra+optus+tpg,248286.83,31.004941435826712,8389655.208900437,22611.17054760456,0.2695125125477954,8664,40830.7911980012,3571.6783730288626,8.747512032545938,382,4
+with_mocn,telstra+optus+tpg+mocn,248286.83,31.004941435826712,8389655.208900437,22611.17054760456,0.2695125125477954,8664,40830.7911980012,3571.6783730288626,8.747512032545938,382,4

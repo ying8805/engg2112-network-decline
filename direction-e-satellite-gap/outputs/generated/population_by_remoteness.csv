@@ -1,0 +1,49 @@
+variant,remoteness_area,population,uncovered_population,uncovered_share_pct
+three_carriers,Inner Regional Australia,1631134.4659047127,7079.391015052795,0.4340163955229892
+three_carriers,Major Cities of Australia,6317001.108268008,0.0,0.0
+three_carriers,Migratory - Offshore - Shipping (ACT),0.0,0.0,
+three_carriers,Migratory - Offshore - Shipping (NSW),0.0,0.0,
+three_carriers,Migratory - Offshore - Shipping (NT),0.0,0.0,
+three_carriers,Migratory - Offshore - Shipping (OT),0.0,0.0,
+three_carriers,Migratory - Offshore - Shipping (Qld),0.0,0.0,
+three_carriers,Migratory - Offshore - Shipping (SA),0.0,0.0,
+three_carriers,Migratory - Offshore - Shipping (Tas.),0.0,0.0,
+three_carriers,Migratory - Offshore - Shipping (Vic.),0.0,0.0,
+three_carriers,Migratory - Offshore - Shipping (WA),0.0,0.0,
+three_carriers,No usual address (ACT),0.0,0.0,
+three_carriers,No usual address (NSW),0.0,0.0,
+three_carriers,No usual address (NT),0.0,0.0,
+three_carriers,No usual address (OT),0.0,0.0,
+three_carriers,No usual address (Qld),0.0,0.0,
+three_carriers,No usual address (SA),0.0,0.0,
+three_carriers,No usual address (Tas.),0.0,0.0,
+three_carriers,No usual address (Vic.),0.0,0.0,
+three_carriers,No usual address (WA),0.0,0.0,
+three_carriers,Outer Regional Australia,386035.8408020735,13554.500175476074,3.5112025213290172
+three_carriers,Outside Australia,0.0,0.0,
+three_carriers,Remote Australia,27773.968117177486,981.5465798377991,3.534052374859384
+three_carriers,Very Remote Australia,6850.830206215382,995.7327772378922,14.534483373044607
+with_mocn,Inner Regional Australia,1631134.4659047127,7079.391015052795,0.4340163955229892
+with_mocn,Major Cities of Australia,6317001.108268008,0.0,0.0
+with_mocn,Migratory - Offshore - Shipping (ACT),0.0,0.0,
+with_mocn,Migratory - Offshore - Shipping (NSW),0.0,0.0,
+with_mocn,Migratory - Offshore - Shipping (NT),0.0,0.0,
+with_mocn,Migratory - Offshore - Shipping (OT),0.0,0.0,
+with_mocn,Migratory - Offshore - Shipping (Qld),0.0,0.0,
+with_mocn,Migratory - Offshore - Shipping (SA),0.0,0.0,
+with_mocn,Migratory - Offshore - Shipping (Tas.),0.0,0.0,
+with_mocn,Migratory - Offshore - Shipping (Vic.),0.0,0.0,
+with_mocn,Migratory - Offshore - Shipping (WA),0.0,0.0,
+with_mocn,No usual address (ACT),0.0,0.0,
+with_mocn,No usual address (NSW),0.0,0.0,
+with_mocn,No usual address (NT),0.0,0.0,
+with_mocn,No usual address (OT),0.0,0.0,
+with_mocn,No usual address (Qld),0.0,0.0,
+with_mocn,No usual address (SA),0.0,0.0,
+with_mocn,No usual address (Tas.),0.0,0.0,
+with_mocn,No usual address (Vic.),0.0,0.0,
+with_mocn,No usual address (WA),0.0,0.0,
+with_mocn,Outer Regional Australia,386035.8408020735,13554.500175476074,3.5112025213290172
+with_mocn,Outside Australia,0.0,0.0,
+with_mocn,Remote Australia,27773.968117177486,981.5465798377991,3.534052374859384
+with_mocn,Very Remote Australia,6850.830206215382,995.7327772378922,14.534483373044607
