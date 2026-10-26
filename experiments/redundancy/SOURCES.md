@@ -83,3 +83,9 @@ REPORT_LAYOUT.pdf is a one-page A4 composition, with source links and ACMA
 attribution. Its layout and image assets are validated without a full research
 pipeline rerun. The old audit's missing-population and presentation blockers
 are superseded by results/final_validation.json.
+
+Final presentation review: 27 October 2026 (Australia/Sydney). The ABS release
+and methodology, ACMA register conditions, emergency-call guidance and linked
+Optus investigation page were rechecked at their original URLs. The population
+source remains the pinned 2024 vintage; a newer release does not change this
+experiment's defined source. Figure labels denote grids, not people or tests.

@@ -1,7 +1,7 @@
 # O4: resilience, population and historical performance
 
-**READY for user review as a scoped exploratory contribution. Nothing is
-committed, pushed or published.** Raw ACMA data, private site records, the ABS
+**Open for review in [PR #4](https://github.com/YangRenRR/engg2112-network-decline/pull/4)
+as a scoped exploratory contribution; not merged.** Raw ACMA data, private site records, the ABS
 source raster, intermediates and `data/panel.csv` remain local and ignored.
 
 Read [the report](REPORT_SECTION.md), [one-page A4 layout](REPORT_LAYOUT.pdf),
@@ -45,7 +45,7 @@ From repository root, with the workspace virtual environment:
 ..\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ..\.venv\Scripts\python.exe experiments/redundancy/scripts/population_comparison.py
 ..\.venv\Scripts\python.exe experiments/redundancy/scripts/finish_submission.py
-..\.venv\Scripts\python.exe experiments/redundancy/scripts/verify_submission.py
+..\.venv\Scripts\python.exe experiments/redundancy/scripts/verify_submission.py --published
 ```
 
 The population script reuses ignored `work/population/GEOTIFF.zip` or downloads
@@ -73,8 +73,8 @@ Then run:
 ..\.venv\Scripts\python.exe experiments/redundancy/scripts/run_o4.py
 ..\.venv\Scripts\python.exe experiments/redundancy/scripts/population_comparison.py
 ..\.venv\Scripts\python.exe experiments/redundancy/scripts/finish_submission.py
-..\.venv\Scripts\python.exe experiments/redundancy/scripts/verify_o4.py
-..\.venv\Scripts\python.exe experiments/redundancy/scripts/verify_submission.py
+..\.venv\Scripts\python.exe experiments/redundancy/scripts/verify_o4.py --published
+..\.venv\Scripts\python.exe experiments/redundancy/scripts/verify_submission.py --published
 ```
 
 `run_o4.py` regenerates the main research tables but not the population
@@ -87,7 +87,10 @@ The original-method panel contains 8,873 bounding-box rows, 768 grids and all
 29 quarters from 2019Q1 through 2026Q1. It retains the original >=50-test rule,
 with no model-history filter and no `panel_nsw.csv` substitution. Strict NSW
 state-centroid matching yields 410 study grids; three lack an official remoteness
-label and remain Unknown. The 2024 population model, 2026 registration snapshot
+label and remain Unknown. The 358 excluded grids comprise Victoria 171,
+Queensland 110, South Australia 6, ACT 13 and unmatched centroids 58. There is
+no offshore snapping or additional rural-history exclusion; see PANEL_REBUILD.md.
+The 2024 population model, 26 October 2026 registration snapshot
 and historical speed measurements are not temporally aligned exposures.
 
 SCHEMA_NOTES.md documents exact corporate names, joins, explicit/inferred
@@ -105,7 +108,9 @@ audits, machine-specific logs, duplicate figure exports, wrappers and redundant
 subset exports remain locally available but are omitted. The new population
 source and all restricted/intermediate files remain ignored. All original
 224 tracked files are unchanged; no source file under src/ or other experiment
-was edited. Approval is still required before any commit or publication.
+was edited. Figure 2 labels report the grid denominator for each bar, not the
+number of tests or eligible decline windows. The published-review validation
+mode permits only allowlisted O4 changes on the existing feature branch.
 
 Population source: Australian Bureau of Statistics. Based on Australian
 Communications and Media Authority information.

@@ -1,5 +1,5 @@
 {
-  "recommendation": "READY for user review and future scoped exploratory PR",
+  "recommendation": "READY for review of existing O4 PR",
   "population_comparison": "Verified ABS modelled 2024 raster; no repeated SA2 totals",
   "population_unique_cells_checked": 26209,
   "valid_population_cells": 26192,
@@ -8,7 +8,7 @@
   "missing_population_grids": 0,
   "independent_projection_reference": "Three public EPSG:3577 fixtures agree within 1 mm",
   "scenario_population_reconciliation": "passed for both definitions and all radii",
-  "report_words_including_title_captions_references": 621,
+  "report_words_including_title_captions_references": 630,
   "report_pages": 1,
   "page_allocation": 1.25,
   "figures_embedded": 2,
@@ -17,9 +17,42 @@
   "tests_passed": 20,
   "existing_tracked_files_unchanged": 224,
   "raw_private_work_panel_excluded": true,
-  "git_staged_changes": 0,
-  "new_commits": 0,
+  "git_review_mode": "published_allowlist",
+  "git_changes_limited_to_approved_files": true,
   "full_pipeline_rerun": false,
+  "figure_sample_sizes_and_grayscale": {
+    "bar_sample_sizes": {
+      "broader": [
+        1,
+        10,
+        10,
+        389
+      ],
+      "strict_pmts": [
+        193,
+        140,
+        73,
+        4
+      ]
+    },
+    "bar_labels": [
+      "n=1",
+      "n=10",
+      "n=10",
+      "n=389",
+      "n=193",
+      "n=140",
+      "n=73",
+      "n=4"
+    ],
+    "map_legend_outside_plot": true,
+    "all_eight_labels_above_bars_without_overlap": true,
+    "titles_axes_and_labels_inside_images": true,
+    "grayscale_pixels_and_distinct_symbols_hatches": true
+  },
+  "original_panel_grids": 768,
+  "strict_nsw_grids": 410,
+  "geographically_excluded_grids": 358,
   "previous_proposed_files": 52,
   "proposed_files": 47,
   "removed_from_proposal": "Historical audits, duplicate figures/review, machine logs, legacy wrappers and redundant subset exports; retained locally",
@@ -29,7 +62,7 @@
     "Broader low-candidate groups have no eligible decline windows at 10 km.",
     "Candidate infrastructure and grid population do not measure operational coverage or single-network dependence."
   ],
-  "publication_authorized": false,
+  "publication_authorized": true,
   "source_sha256": "833e00886fedf9b9da146d30a255d22e242f82c8a914b28770e4f7944e00d720",
-  "proposed_total_bytes": 2304202
+  "proposed_total_bytes": 2316019
 }

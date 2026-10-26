@@ -29,11 +29,31 @@ predecessor checks and decline labels remain unchanged. State and model-history
 filters are later stages; they are not applied to the saved original panel.
 
 The completed local file contains 8,873 rows, 768 bounding-box grids and all
-29 quarters, 2019Q1?2026Q1. SHA-256:
+29 quarters, 2019Q1–2026Q1. SHA-256:
 `55f3a90de29156af2ae1320029cc27aa5b42ddfc5e53ba73e509f803c01a040a`.
 It was revalidated rather than downloaded again for the population extension.
 The O4 strict-state analysis subsequently retains 410 grids and 4,471 rows.
 Rural observations are retained subject to the original measurement threshold.
+This is a geographic restriction, not loss through model-history filtering:
+the original rectangular bounding box also includes neighbouring jurisdictions.
+`analyse.load_panel()` calls `state_of(..., offshore=0)` on each grid centre,
+without the boundary module's default nearest-coast reassignment. Its audit is:
+
+| Centroid jurisdiction | Original-panel grids | O4 inclusion |
+| --- | ---: | --- |
+| New South Wales | 410 | Retained |
+| Victoria | 171 | Excluded |
+| Queensland | 110 | Excluded |
+| South Australia | 6 | Excluded |
+| Australian Capital Territory | 13 | Excluded |
+| No containing state polygon | 58 | Excluded |
+| **Total** | **768** | **410 retained; 358 excluded** |
+
+The unmatched category is not proof of no network coverage. Strict containment
+can exclude coastal grids whose centre lies outside the land polygon. The
+three retained grids without an ABS remoteness label remain in O4 as Unknown;
+they are not among these 358 exclusions. Counts are reproduced from the local
+original panel and checked against `results/data_quality.json`.
 The earlier ABS-remoteness lookup audit used a different jurisdiction matching
 rule; it is not the current study's NSW sample definition.
 

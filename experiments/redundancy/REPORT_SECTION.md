@@ -6,7 +6,7 @@ How do population and historical download speeds differ across NSW operator-cand
 
 ## Data
 
-The original-method Ookla panel retains 410 NSW grids and 4,471 grid-quarter observations from 2019 Q1 to 2026 Q1. Rural observations remain subject to the original minimum of 50 tests. ACMA registrations describe October 2026 infrastructure candidates. Population comes from the ABS 2024 modelled one-kilometre raster, derived from small-area estimates and residential locations [1]. Population-growth predictive AP results are not used.
+Of 768 original bounding-box grids, strict NSW centroid containment retains 410 grids (4,471 observations); 358 belong to other states/ACT or remain unmatched. No offshore snapping or model-history filter is applied. Rural grids remain included. Historical Ookla speeds span 2019 Q1–2026 Q1, with at least 50 tests per observation. ACMA registrations are a 26 October 2026 snapshot, not historical deployments. Population uses the ABS 2024 modelled one-kilometre raster [1].
 
 ## Method
 
@@ -36,7 +36,7 @@ Registration does not establish live service, independent power/backhaul or a de
 Figure 1. Broader candidate groups at 10 km; symbols mark measured grid centres, not coverage.
 
 ![Figure 2: classification comparison](../../docs/o4_performance_comparison.png)
-Figure 2. Historical median speeds by classification. The broader gradient is absent under strict PMTS classification.
+Figure 2. Historical median speeds; n denotes grids. The broader gradient is absent under strict PMTS classification.
 
 [1] [ABS population source and methodology](POPULATION_METHOD.md). [2] [ACMA guidance and investigation](SOURCES.md#emergency-calling).
 

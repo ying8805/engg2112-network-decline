@@ -4,6 +4,7 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+import argparse
 
 import numpy as np
 import pandas as pd
@@ -28,6 +29,9 @@ PACKAGE={
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--published',action='store_true',help='Validate updates to the existing O4 PR rather than an untracked proposal')
+    args=parser.parse_args()
     regions=pd.read_csv(ROOT/'results/region_redundancy.csv',dtype={'region':str})
     pop=pd.read_csv(ROOT/'results/population_by_grid.csv',dtype={'region':str})
     summaries=pd.read_csv(ROOT/'results/population_speed_comparison.csv')
@@ -62,7 +66,7 @@ def main():
         for definition,table in data.groupby('definition'):
             assert np.isclose(table.modelled_population_sum.sum(),scenario['population_sum'])
             assert table.valid_1km_cells.sum()==scenario['unique_valid_cells_assigned']
-    report=(ROOT/'REPORT_SECTION.md').read_text()
+    report=(ROOT/'REPORT_SECTION.md').read_text(encoding='utf-8')
     assert 'not reproduced under the strict classification' in report
     assert all(f'## {h}' in report for h in ['Question','Data','Method','Result','Limitation'])
     assert report.count('![')==2 and 'Figure 1.' in report and 'Figure 2.' in report
@@ -81,11 +85,21 @@ def main():
     assert layout['report_sha256']==sha(ROOT/'REPORT_SECTION.md') and layout['pdf_sha256']==sha(ROOT/'REPORT_LAYOUT.pdf')
     assert layout['pages']==1 and layout['figures_embedded']==2 and layout['all_text_inside_page']
     assert layout['body_font_points']>=9.5 and layout['caption_font_points']>=8
+    figures=layout['figure_checks']
+    assert figures['bar_sample_sizes']=={'broader':[1,10,10,389],'strict_pmts':[193,140,73,4]}
+    assert figures['bar_labels']==['n=1','n=10','n=10','n=389','n=193','n=140','n=73','n=4']
+    assert all(figures[k] for k in ['map_legend_outside_plot','all_eight_labels_above_bars_without_overlap',
+        'titles_axes_and_labels_inside_images','grayscale_pixels_and_distinct_symbols_hatches'])
+    assert '768 original bounding-box grids' in report and '358 belong to other states/ACT or remain unmatched' in report
+    assert '26 October 2026 snapshot, not historical deployments' in report
+    assert 'Historical Ookla speeds span 2019 Q1–2026 Q1' in report
     pdf=(ROOT/'REPORT_LAYOUT.pdf').read_bytes()
     assert len(re.findall(rb'/Type\s*/Page\b',pdf))==1
     dashboard=json.loads((REPO/'docs/o4.json').read_text())
     assert dashboard['id']=='o4' and dashboard['status']=='done'
     assert 'not reproduced under strict' in dashboard['answer']
+    assert '410 of 768' in dashboard['method'] and '26 October 2026 snapshot' in dashboard['method']
+    assert 'n denotes grids' in dashboard['figures'][1]['caption']
     assert len(dashboard['limits'])==len(set(dashboard['limits']))
     assert len(dashboard['sources'])==len({s['url'] for s in dashboard['sources']})
     for table in dashboard['tables']:
@@ -100,8 +114,16 @@ def main():
     assert all(sha(REPO/path)==expected for path,expected in baseline['tracked_sha256'].items())
     with Repo(str(REPO)) as repo:
         state=porcelain.status(repo)
-        assert not any(state.staged.values()) and not state.unstaged
-        assert repo.head().decode()==baseline['initial_head']
+        allowed=set((ROOT/'PR_FILES.txt').read_text().splitlines())
+        if args.published:
+            assert repo.refs.read_ref(b'HEAD')==b'ref: refs/heads/feature/o4-network-redundancy'
+            assert baseline['initial_head'].encode() in {entry.commit.id for entry in repo.get_walker()}
+            changed_paths={p.decode().replace('\\','/') for p in state.unstaged}
+            changed_paths.update(p.decode().replace('\\','/') for paths in state.staged.values() for p in paths)
+            assert changed_paths<=allowed,changed_paths-allowed
+        else:
+            assert not any(state.staged.values()) and not state.unstaged
+            assert repo.head().decode()==baseline['initial_head']
         protected=[p.relative_to(REPO).as_posix() for folder in ['raw','private','work','__pycache__'] for p in (ROOT/folder).rglob('*') if p.is_file()]
         protected+=['data/panel.csv']
         assert set(porcelain.check_ignore(repo,protected))==set(protected)
@@ -121,8 +143,12 @@ def main():
         assert not list(porcelain.check_ignore(repo,names))
         untracked={p.decode().replace('\\','/') for p in porcelain.status(repo,untracked_files='all').untracked}
         scoped={p for p in untracked if p.startswith('experiments/redundancy/') or p.startswith('docs/o4')}
-        assert scoped==set(names),sorted(scoped.symmetric_difference(names))
-    result={'recommendation':'READY for user review and future scoped exploratory PR',
+        if args.published:
+            indexed={p.decode().replace('\\','/') for p in repo.open_index()}
+            assert set(names)<=indexed and scoped<=set(names)
+        else:
+            assert scoped==set(names),sorted(scoped.symmetric_difference(names))
+    result={'recommendation':'READY for review of existing O4 PR' if args.published else 'READY for user review and future scoped exploratory PR',
         'population_comparison':'Verified ABS modelled 2024 raster; no repeated SA2 totals',
         'population_unique_cells_checked':len(cells),'valid_population_cells':int(cells.valid.sum()),
         'population_matched_grids':410,'partial_population_grids':15,'missing_population_grids':0,
@@ -132,14 +158,17 @@ def main():
         'report_pages':1,'page_allocation':1.25,'figures_embedded':2,'layout_visually_reviewed':True,
         'dashboard_schema_and_population_values':'passed','tests_passed':20,
         'existing_tracked_files_unchanged':224,'raw_private_work_panel_excluded':True,
-        'git_staged_changes':0,'new_commits':0,'full_pipeline_rerun':False,
+        'git_review_mode':'published_allowlist' if args.published else 'prepublication_clean',
+        'git_changes_limited_to_approved_files':True,'full_pipeline_rerun':False,
+        'figure_sample_sizes_and_grayscale':figures,
+        'original_panel_grids':768,'strict_nsw_grids':410,'geographically_excluded_grids':358,
         'previous_proposed_files':52,'proposed_files':len(names),
         'removed_from_proposal':'Historical audits, duplicate figures/review, machine logs, legacy wrappers and redundant subset exports; retained locally',
         'remaining_evidence_limits':['Population is modelled, date-mismatched and sensitive to boundary assignment.',
             'The speed gradient is broader-definition-specific; strict classification does not reproduce it.',
             'Broader low-candidate groups have no eligible decline windows at 10 km.',
             'Candidate infrastructure and grid population do not measure operational coverage or single-network dependence.'],
-        'publication_authorized':False,'source_sha256':EXPECTED_SHA}
+        'publication_authorized':args.published,'source_sha256':EXPECTED_SHA}
     save_json(ROOT/'results/final_validation.json',result)
     assert all((REPO/name).exists() for name in names)
     assert not any((REPO/name).stat().st_size>5*1024**2 for name in names)

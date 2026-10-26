@@ -4,6 +4,7 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
+import argparse
 
 import numpy as np
 import pandas as pd
@@ -12,6 +13,9 @@ from analyse import ROOT, REPO, RADII, EARTH_KM, GROUPS, sha, save_json
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--published',action='store_true',help='Review allowlisted corrections on the published O4 feature branch')
+    args=parser.parse_args()
     qa=json.loads((ROOT/'results/data_quality.json').read_text())
     prep=json.loads((ROOT/'provenance/acma_preparation.json').read_text())
     regions=pd.read_csv(ROOT/'results/region_redundancy.csv',dtype={'region':str})
@@ -22,6 +26,14 @@ def main():
     assert len(rows)==qa['observed_rows']
     assert not regions.region.duplicated().any()
     assert not rows.duplicated(['region','t']).any()
+    from analyse import load_panel
+    original=pd.read_csv(REPO/'data/panel.csv',dtype={'region':str})
+    selected,geography=load_panel(REPO/'data/panel.csv')
+    assert original.region.nunique()==sum(geography.values())==768
+    assert geography==qa['geography'] and geography['New South Wales']==410
+    assert sum(n for key,n in geography.items() if key!='New South Wales')==358
+    assert geography['unmatched']==58 and len(selected)==len(rows)==4471
+    assert set(selected.region)==set(regions.region)
     assert regions[[f'possible_5g_{r}km' for r in RADII]].isna().all().all()
     # Independent, dense haversine calculation reconciles BallTree results.
     # Colocated operators share one deduplicated physical-location index.
@@ -66,10 +78,18 @@ def main():
     from dulwich.repo import Repo
     from dulwich import porcelain
     with Repo(str(REPO)) as repo:
-        assert repo.head().decode()==baseline['initial_head']
-        assert repo.refs.read_ref(b'HEAD')==b'ref: refs/heads/o4-local-review'
         status=porcelain.status(repo)
-        assert not any(status.staged.values()) and not status.unstaged
+        if args.published:
+            assert repo.refs.read_ref(b'HEAD')==b'ref: refs/heads/feature/o4-network-redundancy'
+            assert baseline['initial_head'].encode() in {entry.commit.id for entry in repo.get_walker()}
+            allowed=set((ROOT/'PR_FILES.txt').read_text().splitlines())
+            changed_paths={p.decode().replace('\\','/') for p in status.unstaged}
+            changed_paths.update(p.decode().replace('\\','/') for paths in status.staged.values() for p in paths)
+            assert changed_paths<=allowed,changed_paths-allowed
+        else:
+            assert repo.head().decode()==baseline['initial_head']
+            assert repo.refs.read_ref(b'HEAD')==b'ref: refs/heads/o4-local-review'
+            assert not any(status.staged.values()) and not status.unstaged
         raw='experiments/redundancy/raw/spectra_rrl.zip'
         assert list(porcelain.check_ignore(repo,[raw]))==[raw]
         # All private files, including exploratory caches, must be ignored.
@@ -82,8 +102,8 @@ def main():
     for figure in dashboard['figures']:
         assert (REPO/'docs'/figure['src']).exists()
     attribution='Based on Australian Communications and Media Authority information'
-    assert attribution in (ROOT/'REPORT_SECTION.md').read_text()
-    assert attribution in (ROOT/'results/COMPARISON.md').read_text()
+    assert attribution in (ROOT/'REPORT_SECTION.md').read_text(encoding='utf-8')
+    assert attribution in (ROOT/'results/POPULATION_COMPARISON.md').read_text(encoding='utf-8')
     assert all(attribution in f['caption'] for f in dashboard['figures'])
     # Public-form outputs cannot contain register/client/site record columns.
     forbidden={'LICENCE_NO','CLIENT_NO','LICENCEE','POSTAL_STREET','SDD_ID','SITE_ID','physical_site_id'}
@@ -94,7 +114,10 @@ def main():
     assert run.returncode==0,run.stderr
     result={'status':'passed','existing_tracked_files_checked':len(baseline['tracked_sha256']),
         'existing_tracked_files_changed':changed,'raw_and_private_data_ignored':True,
-        'no_staged_changes_or_new_commits':True,'independently_checked_regions':len(regions),
+        'git_review_mode':'published_allowlist' if args.published else 'prepublication_clean',
+        'git_changes_limited_to_approved_files':True,'independently_checked_regions':len(regions),
+        'original_bounding_box_grids':768,'strict_nsw_grids':410,'geographically_excluded_grids':358,
+        'original_panel_geography_reconciled':geography,
         'independent_distance_counts':'passed at all three radii',
         'independent_outcome_windows':'passed keyed future lookup',
         'dashboard_schema_and_images':'passed','unit_tests':unittest.TestLoader().discover(str(ROOT/'scripts'),pattern='test_*.py').countTestCases(),

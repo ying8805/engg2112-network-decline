@@ -30,24 +30,53 @@ def figures(regions,broad,strict):
             for ring,_ in _rings(f['geometry']):ax.plot(ring[:,0],ring[:,1],color='.6',lw=.4)
     for n,marker,c in zip(range(4),['x','o','^','s'],['black','.2','.4','.65']):
         part=regions[regions.operators_10km.eq(n)]
-        ax.scatter(part.lon,part.lat,s=8,marker=marker,color=c,linewidths=.4,label=f'{n}: n={len(part)}')
-    ax.set(xlim=(140.5,154.5),ylim=(-37.8,-27.8),aspect=1.18,title='Figure 1. Broader candidates within 10 km',xlabel='Longitude',ylabel='Latitude')
+        ax.scatter(part.lon,part.lat,s=8,marker=marker,color=c,linewidths=.4,zorder=5-n,label=f'{n}: n={len(part)}')
+    ax.set(xlim=(140.5,154.5),ylim=(-37.8,-27.8),aspect=1.18,xlabel='Longitude (°)',ylabel='Latitude (°)')
     ax.set_xticks([142,146,150,154]);ax.set_yticks([-36,-32,-28])
-    ax.legend(loc='upper left',frameon=True,title='Candidates: grids',title_fontsize=7.5)
-    mapfig.tight_layout(pad=.35)
+    ax.legend(loc='upper left',bbox_to_anchor=(1.02,1),borderaxespad=0,frameon=False,title='Candidates\n(grid n)',title_fontsize=7.5)
+    mapfig.suptitle('Figure 1. Broader candidates (10 km)',fontsize=9,y=.98)
+    mapfig.tight_layout(pad=.35,rect=(0,0,1,.92))
     mapfig.savefig(REPO/'docs/o4_operator_redundancy.png',dpi=260)
     speedfig,ax=plt.subplots(figsize=(3.55,2.35))
     x=np.arange(4);w=.35
     b=broad[broad.radius_km.eq(10)].sort_values('category',key=lambda s:s.map({'zero-observed':0,'single-observed':1,'two-observed':2,'three-observed':3}))
     s=strict.query('radius_km==10 and definition=="explicit_pmts_only"').sort_values('category',key=lambda s:s.map({'zero-observed':0,'single-observed':1,'two-observed':2,'three-observed':3}))
-    ax.bar(x-w/2,b.median_region_download_mbps,w,label='Broader',color='.75',edgecolor='black',hatch='//',linewidth=.6)
-    ax.bar(x+w/2,s.median_region_download_mbps,w,label='Strict PMTS',color='white',edgecolor='black',hatch='..',linewidth=.6)
-    ax.set(xlim=(-.6,3.6),ylim=(0,120),xticks=x,xlabel='Observed operator candidates within 10 km',
+    broader_bars=ax.bar(x-w/2,b.median_region_download_mbps,w,label='Broader',color='.75',edgecolor='black',hatch='//',linewidth=.6)
+    strict_bars=ax.bar(x+w/2,s.median_region_download_mbps,w,label='Strict PMTS',color='white',edgecolor='black',hatch='..',linewidth=.6)
+    labels=[]
+    for bars,counts in ((broader_bars,b.regions),(strict_bars,s.regions)):
+        labels.extend(ax.bar_label(bars,labels=[f'n={int(n)}' for n in counts],padding=6 if bars is strict_bars else 3,fontsize=7))
+    ax.set(xlim=(-.6,3.6),ylim=(0,120),xticks=x,xlabel='Operator candidates within 10 km',
            ylabel='Historical median download (Mbps)',title='Figure 2. Speed gradient depends on definition')
     ax.legend(loc='upper left',ncols=2,frameon=False)
     speedfig.tight_layout(pad=.35)
     speedfig.savefig(REPO/'docs/o4_performance_comparison.png',dpi=260)
-    return mapfig,speedfig
+    # Audit the actual rendered artists, including the eight labels and legend.
+    checks={'bar_sample_sizes':{'broader':b.regions.astype(int).tolist(),'strict_pmts':s.regions.astype(int).tolist()},
+            'bar_labels':[label.get_text() for label in labels]}
+    mapfig.canvas.draw();speedfig.canvas.draw()
+    legend_box=mapfig.axes[0].get_legend().get_window_extent(mapfig.canvas.get_renderer())
+    axes_box=mapfig.axes[0].get_window_extent()
+    assert legend_box.x0>=axes_box.x1,'Map legend overlaps plotting area'
+    checks['map_legend_outside_plot']=True
+    renderer=speedfig.canvas.get_renderer()
+    boxes=[label.get_window_extent(renderer) for label in labels]
+    for i,box in enumerate(boxes):
+        assert box.y0>list(broader_bars.patches+strict_bars.patches)[i].get_window_extent(renderer).y1
+        assert all(not box.overlaps(other) for other in boxes[i+1:]),'Sample labels overlap'
+    checks['all_eight_labels_above_bars_without_overlap']=True
+    for fig in (mapfig,speedfig):
+        fig.canvas.draw();renderer=fig.canvas.get_renderer()
+        texts=[t for t in fig.findobj(matplotlib.text.Text) if t.get_visible() and t.get_text()]
+        for text in texts:
+            box=text.get_window_extent(renderer)
+            assert box.x0>=-1 and box.y0>=-1 and box.x1<=fig.bbox.width+1 and box.y1<=fig.bbox.height+1,'Figure text clipped'
+    for name in ('o4_operator_redundancy.png','o4_performance_comparison.png'):
+        pixels=plt.imread(REPO/'docs'/name)
+        assert np.array_equal(pixels[:,:,0],pixels[:,:,1]) and np.array_equal(pixels[:,:,0],pixels[:,:,2]),'Non-grayscale figure'
+    checks['titles_axes_and_labels_inside_images']=True
+    checks['grayscale_pixels_and_distinct_symbols_hatches']=True
+    return checks
 
 
 def wrap(text,width,renderer,size=10,bold=False):
@@ -149,14 +178,14 @@ def main():
     broad=pd.read_csv(ROOT/'results/headline_comparison.csv')
     strict=pd.read_csv(ROOT/'results/classification_sensitivity.csv')
     regions=pd.read_csv(ROOT/'results/region_redundancy.csv')
-    figures(regions,broad,strict)
+    figure_checks=figures(regions,broad,strict)
     main_pop=pop.query('definition=="broader" and radius_km==10').sort_values('operators')
     exact=main_pop.modelled_population_sum.tolist()
     spans=sensitivity.query('definition=="broader" and radius_km==10').groupby('operators').modelled_population_sum.agg(['min','max'])
     sections=[('Question',[
         'How do population and historical download speeds differ across NSW operator-candidate groups, and can persistent decline be compared? The speed gradient appears under the broader classification but is not reproduced under strict classification (Figure 2).']),
       ('Data',[
-        f'The original-method Ookla panel retains {qa["regions_analysed_for_redundancy"]} NSW grids and {qa["observed_rows"]:,} grid-quarter observations from 2019 Q1 to 2026 Q1. Rural observations remain subject to the original minimum of 50 tests. ACMA registrations describe October 2026 infrastructure candidates. Population comes from the ABS 2024 modelled one-kilometre raster, derived from small-area estimates and residential locations [1]. Population-growth predictive AP results are not used.']),
+        f'Of 768 original bounding-box grids, strict NSW centroid containment retains {qa["regions_analysed_for_redundancy"]} grids ({qa["observed_rows"]:,} observations); 358 belong to other states/ACT or remain unmatched. No offshore snapping or model-history filter is applied. Rural grids remain included. Historical Ookla speeds span 2019 Q1–2026 Q1, with at least 50 tests per observation. ACMA registrations are a 26 October 2026 snapshot, not historical deployments. Population uses the ABS 2024 modelled one-kilometre raster [1].']),
       ('Method',[
         'Exact corporate identities map registrations to Telstra, Optus and TPG/Vodafone. The strict definition retains explicit PMTS base records; the broader definition also includes inferred mobile-compatible spectrum registrations. Receivers, noncurrent licences and unrelated services are excluded. Sectors and repeated licences collapse to operator-location pairs; shared and ambiguous records remain qualified.',
         'Great-circle searches count candidates within 5, 10 and 20 km. Each population raster cell is assigned once to the measured grid containing its centre, conditional on that centre being in NSW. No SA2 total is repeated across grids. Valid-cell matching and NoData are reported separately from zero population. Four cell-corner assignments assess border sensitivity; these are scenarios, not confidence intervals.',
@@ -170,7 +199,7 @@ def main():
         'Population is modelled for 2024, while infrastructure is a 2026 snapshot and speeds span different histories. A grid inherits its centre’s classification; people elsewhere in that grid may face different infrastructure. Raster missingness, boundary assignment, self-selected tests and thin rural histories limit interpretation. Counts cover measured grids, not statewide residents or operational coverage.',
         'Registration does not establish live service, independent power/backhaul or a defensible 4G/5G indicator. No causal or predictive effect is established. ACMA permits emergency calls through another available network, but its 2023 Optus investigation documents failed emergency access [2]. Nearby infrastructure therefore cannot guarantee successful calls. Signal strength, voice quality and emergency-call success were not measured.'])]
     captions=['Figure 1. Broader candidate groups at 10 km; symbols mark measured grid centres, not coverage.',
-              'Figure 2. Historical median speeds by classification. The broader gradient is absent under strict PMTS classification.']
+              'Figure 2. Historical median speeds; n denotes grids. The broader gradient is absent under strict PMTS classification.']
     lines=[f'# {TITLE}','']
     for head,paras in sections:
         lines += [f'## {head}','',*['\n\n'.join(paras)],'']
@@ -194,9 +223,9 @@ def main():
     (ROOT/'results/POPULATION_COMPARISON.md').write_text('\n'.join(table_lines)+'\n',encoding='utf-8')
     dashboard=json.loads((REPO/'docs/o4.json').read_text())
     dashboard['answer']='The historical speed gradient appears under the broader operator-candidate classification but is not reproduced under strict PMTS classification. ABS modelled population has been compared without duplicating SA2 totals. Low-broader-candidate groups have no eligible decline windows at 10 km, so greater decline vulnerability cannot be assessed.'
-    dashboard['method']='410 NSW grids; 2026 registration candidates; historical Ookla speeds; ABS 2024 modelled 1 km population assigned once by cell centre. Broader/strict, geography, radius and raster-assignment sensitivities are descriptive.'
+    dashboard['method']='Strict NSW centroid containment retains 410 of 768 bounding-box grids; 358 are in other states/ACT or unmatched. No offshore snapping or model-history filter. ACMA: 26 October 2026 snapshot; Ookla: 2019 Q1–2026 Q1 historical speeds; ABS: 2024 modelled 1 km population assigned once by cell centre. Comparisons are descriptive.'
     dashboard['figures'][0].update(caption=captions[0]+' '+ATTRIBUTION,alt='Ten-kilometre broader candidate counts at measured NSW grid centres.')
-    dashboard['figures'][1].update(caption=captions[1]+' '+ATTRIBUTION,alt='Grouped grayscale bars comparing broader and strict download medians.')
+    dashboard['figures'][1].update(caption=captions[1]+' '+ATTRIBUTION,alt='Historical download medians with grid counts above eight bars: broader n=1,10,10,389; strict PMTS n=193,140,73,4.')
     pop_table={'title':'10 km broader candidate groups: modelled population and speed',
         'columns':['Candidates','Grids','Population-matched grids','Modelled people (2024)','Raster matched','Missing / partial grids','Median Mbps'],
         'rows':[[str(int(r.operators)),str(int(r.grids)),f'{int(r.grids_with_population_data)}/{int(r.grids)}',r.population_display,
@@ -222,6 +251,7 @@ def main():
     dashboard['sources']=list({s['url']:s for s in dashboard['sources']}.values())
     save_json(REPO/'docs/o4.json',dashboard)
     layout=layout_pdf(TITLE,sections,captions,pop)
+    layout['figure_checks']=figure_checks
     layout.update(report_words_whitespace=len(report.split()),report_body_words=len(' '.join(p for _,paras in sections for p in paras).split()),
         report_sha256=sha(ROOT/'REPORT_SECTION.md'),pdf_sha256=sha(ROOT/'REPORT_LAYOUT.pdf'))
     save_json(ROOT/'results/layout_validation.json',layout)

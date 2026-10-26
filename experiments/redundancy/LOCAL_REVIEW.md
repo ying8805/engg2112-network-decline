@@ -8,7 +8,7 @@ missingness and five geometric scenarios are reproducible locally.
 
 The broader 10 km groups contain <100 / approximately 1,100 / 1,500 / 7.2 million
 modelled people. All 410 grids have some data; 15 are partial. NoData is not zero.
-The three-candidate assignment sensitivity is 6.91?7.24 million. This is not an
+The three-candidate assignment sensitivity is 6.91–7.24 million. This is not an
 uncertainty interval or a population proven to depend on a particular network.
 
 The headline and dashboard now state that the speed gradient appears under
@@ -34,4 +34,8 @@ a 2026 infrastructure proxy, uncertain mobile-site classification, missing
 low-candidate decline windows, and no direct coverage/voice/emergency-call
 measurement. They are stated in the report and are not masked by modelling.
 No additional input or approval is needed to review the local artifacts.
-No commit, push, PR or publication has occurred; those remain unauthorized.
+The approved package is published for review in PR #4 and remains unmerged.
+The presentation review adds grid sample sizes above all eight Figure 2 bars,
+moves the Figure 1 legend outside the map, and explicitly reconciles 768
+bounding-box grids to 410 strict-NSW grids. Current registration candidates
+(26 October 2026) are distinguished from 2019Q1–2026Q1 historical speeds.

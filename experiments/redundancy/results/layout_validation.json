@@ -9,12 +9,42 @@
   "allocation_pages": 1.25,
   "actual_pages": 1,
   "within_allocation": true,
-  "word_layout_lines": 95,
+  "word_layout_lines": 96,
   "table_included": false,
   "population_table_artifact": "results/POPULATION_COMPARISON.md",
   "figures_embedded": 2,
-  "report_words_whitespace": 621,
-  "report_body_words": 535,
-  "report_sha256": "a0c0cb4fdae062345f453dfe757c531ba8dcc11d1898de8ed9b84e6ba18f4418",
-  "pdf_sha256": "ea0d1e1545caff18987a9eaf9fb0dcf0ca7356641648b905f72a861a84f023b5"
+  "figure_checks": {
+    "bar_sample_sizes": {
+      "broader": [
+        1,
+        10,
+        10,
+        389
+      ],
+      "strict_pmts": [
+        193,
+        140,
+        73,
+        4
+      ]
+    },
+    "bar_labels": [
+      "n=1",
+      "n=10",
+      "n=10",
+      "n=389",
+      "n=193",
+      "n=140",
+      "n=73",
+      "n=4"
+    ],
+    "map_legend_outside_plot": true,
+    "all_eight_labels_above_bars_without_overlap": true,
+    "titles_axes_and_labels_inside_images": true,
+    "grayscale_pixels_and_distinct_symbols_hatches": true
+  },
+  "report_words_whitespace": 630,
+  "report_body_words": 543,
+  "report_sha256": "4e455d5f4eb75192d1b46f941c227fb9fa0e24870acfa9bf387ef9600564e809",
+  "pdf_sha256": "9622cb9ef1e854c60102d4429387e39fa94f50471e50a6a0bd52997a9129502e"
 }
