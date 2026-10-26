@@ -1,0 +1,114 @@
+coverage:
+  publisher: Australian Competition and Consumer Commission (ACCC)
+  catalogue: https://data.gov.au/data/dataset/accc-mobile-infrastructure-report-data-release
+  report: https://www.accc.gov.au/by-industry/telecommunications-and-internet/mobile-services-regulation/mobile-infrastructure-report/mobile-infrastructure-report-2026
+  report_release_date: 2026-09-22
+  map_reference_date: 2026-01-31
+  map_type: 4G outdoor predicted coverage
+  files_supplied_locally:
+    - coverage-map-telstra-4g-outdoor-2026.kml
+    - coverage-map-optus-4g-outdoor-2026.zip
+    - coverage-map-tpg-4g-outdoor-2026.kml
+  notes:
+    - ACCC says the released maps do not reflect the standardised approach that took effect on 2026-06-30.
+    - Operators use different modelling assumptions; cross-operator comparison has limitations.
+    - Telstra revised its 4G outdoor mapping method in 2024 after identifying an underestimation issue in its 2022/2023 submissions.
+
+population:
+  publisher: Australian Bureau of Statistics (ABS)
+  title: Australian population grid 2025, GeoTIFF
+  reference_period: ERP at 2025-06-30
+  url: https://www.abs.gov.au/statistics/people/population/regional-population/2024-25/GEOTIFF.zip
+  landing_page: https://www.abs.gov.au/statistics/people/population/regional-population/2024-25
+  notes:
+    - 1 km grid; modelled population allocated to residential locations, not a direct count at each cell.
+    - Population is assigned to gap cells by cell-centre coverage classification.
+
+state_boundary:
+  publisher: Australian Bureau of Statistics (ABS)
+  title: States and Territories 2021, Shapefile, GDA2020
+  url: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/STE_2021_AUST_SHP_GDA2020.zip
+  landing_page: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files
+  licence: CC BY 4.0
+  expected_layer: STE_2021_AUST_GDA2020
+  expected_state_field: STE_NAME21
+
+remoteness:
+  publisher: Australian Bureau of Statistics (ABS)
+  title: Remoteness Area 2021, GeoPackage, GDA2020
+  url: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/ASGS_Ed3_2021_RA_GPKG_GDA2020.zip
+  landing_page: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files
+  licence: CC BY 4.0
+  expected_name_field: RA_NAME21
+  vintage_note: 2021 classification.
+
+roads:
+  publisher: Transport for NSW via Data.NSW
+  title: NSW Road Network Categorisation, SHP
+  url: https://opendata.transport.nsw.gov.au/data/dataset/3fd475d4-ffed-479f-8fe7-99bbf78d85be/resource/63a25fc2-7bf6-42ee-96d2-ff749d04d688/download/nsw_road_network_categorisation.zip
+  landing_page: https://www.data.nsw.gov.au/data/en/dataset/2-nsw-roads-network-categorisation
+  publication_date: 2026-02-18
+  licence: Creative Commons Attribution
+  scope_note: State and Regional roads, not a complete local-road inventory.
+
+hospitals:
+  publisher: Australian Institute of Health and Welfare (AIHW)
+  title: MyHospitals reporting-unit locations
+  url: https://myhospitalsapi.aihw.gov.au/api/v1/reporting-units
+  documentation: https://www.aihw.gov.au/hospitals/other-resources/myhospitals-api
+  format: JSON
+  licence: CC BY 3.0
+
+restricted_or_optional:
+  acma_licence_data:
+    handling: Do not download, commit, or redistribute raw ACMA licence data.
+  mobile_site_inventory_csvs:
+    status: Supplied locally; not required for E1 coverage-gap polygons or the 1 km population estimate.
+    handling: Keep out of Git unless the team establishes a separate permitted use.
+
+satellite_e2_trials:
+  publisher: Australian Government Department of Infrastructure
+  landing_page: https://www.infrastructure.gov.au/media-communications/modernising-universal-telecommunications-services/trials-voice-services
+  dashboard: https://app.powerbi.com/view?r=eyJrIjoiZDYyMzBiMTItYjI5Mi00ZTM2LWE3ZmEtZGMyMzZmY2ZjZjk4IiwidCI6ImFhMjFiNjQwLWJhYzItNDU2ZC04NTA1LWYyY2MwN2Y1MTc4NCJ9
+  trial_window: 2024-11 to 2025-07
+  regions: 50 nationwide, including 8 NSW regions in data/e2/nsw_voice_trial_sites.csv
+  tested: Starlink LEOSat fixed voice; NBN fixed wireless and satellite comparators
+  scope_limit: Fixed voice over LEO broadband, not direct-to-device handset voice
+  results_note: Department says Starlink and fixed wireless generally performed well on most technical metrics and broad analysis found no weather impact on LEO performance; full findings were still being considered in September 2025.
+  mos_secondary_summary: https://www.comcom.govt.nz/assets/Documents/copper-services-investigation/Copper-Services-Investigation-Final-recommendation-report-21-August-2025.pdf
+
+satellite_e2_services:
+  telstra_satellite_messaging:
+    official_page: https://www.telstra.com.au/support/mobiles-devices/satellite-to-mobile
+    mode: Starlink Direct to Cell handset service
+    capability: SMS and selected low-bandwidth satellite apps; no phone calls, full internet or Triple Zero
+    conditions: Compatible device/software, eligible Telstra Upfront plan, outside Telstra mobile range, outdoors with clear sky; intermittent connection.
+  optus_starlink_d2d:
+    official_announcement: https://www.optus.com.au/connected/news/together-optus-and-spacex
+    status_checked: 2026-10-25
+    status: Partnership announced; no current retail launch verified in checked official sources.
+  tpg_lynk_d2d:
+    official_media_releases: https://www.tpgtelecom.com.au/media_release?page=1&year=All
+    status: Partnership/text trial evidence; no retail consumer coverage verified in checked official sources.
+
+satellite_e3_ookla:
+  publisher: Ookla
+  repository: https://github.com/teamookla/ookla-open-data
+  layer: performance_fixed_tiles
+  parquet_pattern: https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=fixed/year=YYYY/quarter=Q/YYYY-MM-01_performance_fixed_tiles.parquet
+  observed_period: 2019-Q1 to 2026-Q1 in source README
+  fields: avg_d_kbps, avg_u_kbps, avg_lat_ms, tests, devices, quadkey
+  event: ACCC says Starlink fixed broadband launched in Australia in 2021; use 2021-Q2 as a transition quarter.
+  licence: CC BY-NC-SA 4.0
+  limits: No ISP/provider field; median tile-average is not individual-test median; do not claim causality; do not commit raw tiles.
+
+satellite_e4_uomo:
+  minister_release: https://minister.infrastructure.gov.au/wells/media-release/ensuring-better-mobile-coverage-all-australians
+  parliament_bill_record: https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7414
+  parliamentary_library_digest: https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/bd/bd2526/26bd039
+  status_checked: 2026-10-25
+  status_note: Minister release dated 2026-10-16 says passed Parliament. Verify Royal Assent and final Act before publication.
+  planned_commencement: 2027-12-01, subject to market developments (Minister release).
+  scope: Government describes outdoor voice and SMS; check final Act/standards for emergency calling and implementation.
+  current_d2d_voice: ACCC October 2026 paper says D2D voice services are not currently available.
+

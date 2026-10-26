@@ -1,0 +1,16 @@
+name: nsw-coverage-gap-direction-e
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - gdal>=3.8
+  - geopandas>=1.0
+  - rasterio>=1.3
+  - shapely>=2.0
+  - pyogrio
+  - pyproj
+  - requests
+  - pandas
+  - numpy
+  - duckdb
+  - mercantile
