@@ -1,0 +1,191 @@
+{
+  "id": "o4",
+  "title": "Resilience and redundancy",
+  "question": "Do NSW grids with fewer nearby operator candidates have poorer performance and more persistent decline?",
+  "status": "done",
+  "answer": "The historical speed gradient appears under the broader operator-candidate classification but is not reproduced under strict PMTS classification. ABS modelled population has been compared without duplicating SA2 totals. Low-broader-candidate groups have no eligible decline windows at 10 km, so greater decline vulnerability cannot be assessed.",
+  "method": "410 NSW grids; 2026 registration candidates; historical Ookla speeds; ABS 2024 modelled 1 km population assigned once by cell centre. Broader/strict, geography, radius and raster-assignment sensitivities are descriptive.",
+  "figures": [
+    {
+      "src": "o4_operator_redundancy.png",
+      "caption": "Figure 1. Broader candidate groups at 10 km; symbols mark measured grid centres, not coverage. Based on Australian Communications and Media Authority information",
+      "alt": "Ten-kilometre broader candidate counts at measured NSW grid centres."
+    },
+    {
+      "src": "o4_performance_comparison.png",
+      "caption": "Figure 2. Historical median speeds by classification. The broader gradient is absent under strict PMTS classification. Based on Australian Communications and Media Authority information",
+      "alt": "Grouped grayscale bars comparing broader and strict download medians."
+    }
+  ],
+  "tables": [
+    {
+      "title": "10 km broader candidate groups: modelled population and speed",
+      "columns": [
+        "Candidates",
+        "Grids",
+        "Population-matched grids",
+        "Modelled people (2024)",
+        "Raster matched",
+        "Missing / partial grids",
+        "Median Mbps"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "1/1",
+          "<100",
+          "100.00%",
+          "0 / 0",
+          "2.83"
+        ],
+        [
+          "1",
+          "10",
+          "10/10",
+          "~1,100",
+          "100.00%",
+          "0 / 0",
+          "18.96"
+        ],
+        [
+          "2",
+          "10",
+          "10/10",
+          "~1,500",
+          "100.00%",
+          "0 / 0",
+          "36.50"
+        ],
+        [
+          "3",
+          "389",
+          "389/389",
+          "~7,200,000",
+          "99.93%",
+          "0 / 15",
+          "83.15"
+        ]
+      ]
+    },
+    {
+      "title": "Strict PMTS classification sensitivity",
+      "columns": [
+        "Group",
+        "Grids",
+        "Median Mbps",
+        "Eligible decline windows"
+      ],
+      "rows": [
+        [
+          "zero-observed",
+          "193",
+          "91.67",
+          "2308"
+        ],
+        [
+          "single-observed",
+          "140",
+          "74.28",
+          "555"
+        ],
+        [
+          "two-observed",
+          "73",
+          "69.54",
+          "332"
+        ],
+        [
+          "three-observed",
+          "4",
+          "88.43",
+          "3"
+        ]
+      ]
+    },
+    {
+      "title": "Broader classification: persistent raw decline at 10 km",
+      "columns": [
+        "Group",
+        "Eligible windows",
+        "Events",
+        "Frequency"
+      ],
+      "rows": [
+        [
+          "zero-observed",
+          "0",
+          "0",
+          "Not assessable"
+        ],
+        [
+          "single-observed",
+          "0",
+          "0",
+          "Not assessable"
+        ],
+        [
+          "two-observed",
+          "0",
+          "0",
+          "Not assessable"
+        ],
+        [
+          "three-observed",
+          "3198",
+          "180",
+          "5.63%"
+        ]
+      ]
+    }
+  ],
+  "limits": [
+    "Spectrum registrations are mobile-compatible candidates, not verified cellular deployments.",
+    "Site counts are coordinate-deduplicated registry locations; nearby-location bounds are not validated physical towers.",
+    "Strict state containment excludes unmatched offshore/coastal centroids; ACT excluded.",
+    "No defensible generation indicator; possible_5g is unknown throughout.",
+    "Historical associations with a recent snapshot are descriptive, not predictive or causal.",
+    "Strict-only registration classification substantially changes groups.",
+    "Self-selected tests and very thin rural histories limit comparisons.",
+    "No emergency-call success, voice quality or signal strength was measured.",
+    "Licence attribution: Based on Australian Communications and Media Authority information",
+    "Raster matching describes pixel availability, not the share of NSW residents served. Fifteen grids have partial raster data; missing pixels are not zero.",
+    "Centre/corner assignments put the broader three-candidate population between 6.91 and 7.24 million; this is not a confidence interval.",
+    "Strict inventory classification is incomplete and does not reproduce a monotonic speed gradient.",
+    "Population is ABS modelled 2024 data, not exact counts or 2026 residents. All grids inherit the candidate count at their centre."
+  ],
+  "sources": [
+    {
+      "name": "ACMA RRL data and terms",
+      "url": "https://www.acma.gov.au/radiocomms-licence-data"
+    },
+    {
+      "name": "ACMA RRL help",
+      "url": "https://www.acma.gov.au/help-register-radiocommunications-licences-rrl"
+    },
+    {
+      "name": "ACMA emergency calls",
+      "url": "https://www.acma.gov.au/emergency-calls"
+    },
+    {
+      "name": "ACMA investigation outcome, 2023 Optus outage",
+      "url": "https://www.acma.gov.au/articles/2024-11/optus-pays-12-million-penalty-triple-zero-outage"
+    },
+    {
+      "name": "ACMA spectrum use context",
+      "url": "https://www.acma.gov.au/expiring-spectrum-licences"
+    },
+    {
+      "name": "Ookla source documentation",
+      "url": "https://github.com/teamookla/ookla-open-data"
+    },
+    {
+      "name": "ABS population-grid methodology",
+      "url": "https://www.abs.gov.au/methodologies/regional-population-methodology/2023-24"
+    },
+    {
+      "name": "ABS 2024 modelled population grid",
+      "url": "https://www.abs.gov.au/statistics/people/population/regional-population/2023-24"
+    }
+  ]
+}

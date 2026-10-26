@@ -1,0 +1,20 @@
+{
+  "paper": "A4",
+  "pages": 1,
+  "page_width_points": 595.2756,
+  "page_height_points": 841.8898,
+  "body_font_points": 9.5,
+  "caption_font_points": 8,
+  "all_text_inside_page": true,
+  "allocation_pages": 1.25,
+  "actual_pages": 1,
+  "within_allocation": true,
+  "word_layout_lines": 95,
+  "table_included": false,
+  "population_table_artifact": "results/POPULATION_COMPARISON.md",
+  "figures_embedded": 2,
+  "report_words_whitespace": 621,
+  "report_body_words": 535,
+  "report_sha256": "a0c0cb4fdae062345f453dfe757c531ba8dcc11d1898de8ed9b84e6ba18f4418",
+  "pdf_sha256": "ea0d1e1545caff18987a9eaf9fb0dcf0ca7356641648b905f72a861a84f023b5"
+}

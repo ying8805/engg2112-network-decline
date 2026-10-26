@@ -1,0 +1,455 @@
+{
+  "raw_archive_sha256": "9da21e6adb091a867d330513afe6afe01c6eab1b17b640a27ce7ed3545164faf",
+  "snapshot_date": "2026-10-26",
+  "snapshot_date_basis": "Archive member timestamps and latest licence/device dates; timezone of ZIP timestamps unspecified",
+  "user_supplied_download": true,
+  "agent_accepted_terms": false,
+  "encoding": "UTF-8",
+  "source_crs": "EPSG:4283 (GDA94)",
+  "frequency_unit": "Hz",
+  "site_data_publication": false,
+  "archive_members": [
+    {
+      "name": "access_area.csv",
+      "bytes": 836,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "bsl_area.csv",
+      "bytes": 11056,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "antenna_polarity.csv",
+      "bytes": 293,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "client_type.csv",
+      "bytes": 161,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "fee_status.csv",
+      "bytes": 63,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "industry_cat.csv",
+      "bytes": 650,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "licence_service.csv",
+      "bytes": 492,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "licence_status.csv",
+      "bytes": 330,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "licence_subservice.csv",
+      "bytes": 3851,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "licensing_area.csv",
+      "bytes": 129,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "nature_of_service.csv",
+      "bytes": 901,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "class_of_station.csv",
+      "bytes": 447,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "client.csv",
+      "bytes": 1688645,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "antenna.csv",
+      "bytes": 624649,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "antenna_pattern.csv",
+      "bytes": 2308564,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "licence.csv",
+      "bytes": 20722416,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "bsl.csv",
+      "bytes": 208461,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "applic_text_block.csv",
+      "bytes": 175625405,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        14
+      ]
+    },
+    {
+      "name": "reports_text_block.csv",
+      "bytes": 177635,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        16
+      ]
+    },
+    {
+      "name": "satellite.csv",
+      "bytes": 4088,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        16
+      ]
+    },
+    {
+      "name": "auth_spectrum_freq.csv",
+      "bytes": 212268,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        16
+      ]
+    },
+    {
+      "name": "auth_spectrum_area.csv",
+      "bytes": 1592452,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        16
+      ]
+    },
+    {
+      "name": "site.csv",
+      "bytes": 13652758,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        16
+      ]
+    },
+    {
+      "name": "device_details.csv",
+      "bytes": 387262523,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        16
+      ]
+    },
+    {
+      "name": "README.TXT",
+      "bytes": 295,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        22
+      ]
+    },
+    {
+      "name": "LICENCE.TXT",
+      "bytes": 4004,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        22
+      ]
+    },
+    {
+      "name": "LICENCE.PDF",
+      "bytes": 49587,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        22
+      ]
+    },
+    {
+      "name": "DOC/cr_tables_oracle.sql",
+      "bytes": 8610,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        22
+      ]
+    },
+    {
+      "name": "DOC/offline_rrl_link.htm",
+      "bytes": 1704,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        22
+      ]
+    },
+    {
+      "name": "DOC/RRLDataDownloads_ERD.jpg",
+      "bytes": 101108,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        22
+      ]
+    },
+    {
+      "name": "DOC/Summary_of_Spectra_RRL_Format.xlsx",
+      "bytes": 24231,
+      "zip_date": [
+        2026,
+        10,
+        26,
+        21,
+        22,
+        22
+      ]
+    }
+  ],
+  "reference_documents_read": [
+    "README.TXT",
+    "LICENCE.TXT",
+    "DOC/cr_tables_oracle.sql",
+    "DOC/Summary_of_Spectra_RRL_Format.xlsx",
+    "DOC/RRLDataDownloads_ERD.jpg",
+    "DOC/offline_rrl_link.htm"
+  ],
+  "table_rows": {
+    "client": 14294,
+    "licence": 164341,
+    "site": 129999
+  },
+  "mapped_licences": 16635,
+  "mapped_noncurrent_or_unresolved_licences": 12,
+  "total_device_records": 2172595,
+  "device_licence_orphans": 0,
+  "device_site_orphans": 0,
+  "unassigned_joint_venture_transmit_records": 23878,
+  "mapped_device_records": 1310303,
+  "mapped_receive_records_excluded": 656166,
+  "mapped_device_future_or_missing_authorisation": 0,
+  "accepted_before_coordinate_checks": 623487,
+  "accepted_missing_site_or_invalid_mainland_coordinates": 21,
+  "accepted_classifications": {
+    "spectrum_inferred": 611405,
+    "explicit_pmts": 12061
+  },
+  "accepted_site_precision_records": {
+    "Within 10 metres": 440008,
+    "Unknown": 134407,
+    "Within 100 metres": 49051
+  },
+  "accepted_empty_technology_fields": 623466,
+  "accepted_records": 623466,
+  "unique_registry_site_ids": 23913,
+  "coordinate_deduplicated_sites": 23909,
+  "operator_site_pairs": 35650,
+  "collapsed_registration_records": 587816,
+  "duplicate_coordinate_site_ids": 4,
+  "technology_indicator": "Unavailable: no explicit generation field; frequency is not unique evidence",
+  "operator_site_pair_counts": {
+    "Optus": 12072,
+    "TPG/Vodafone": 9864,
+    "Telstra": 13714
+  },
+  "physical_site_proximity_sensitivity": [
+    {
+      "metres": 25,
+      "nearby_pairs": 1193,
+      "proximity_clusters": 22783
+    },
+    {
+      "metres": 50,
+      "nearby_pairs": 2841,
+      "proximity_clusters": 21569
+    },
+    {
+      "metres": 100,
+      "nearby_pairs": 6963,
+      "proximity_clusters": 19662
+    }
+  ],
+  "schema_sha256": {
+    "DOC/Summary_of_Spectra_RRL_Format.xlsx": "4db9a0688c80d9c2d7f7206f0c8750e520c4cf710cf565a37a9ee5121020824f",
+    "DOC/cr_tables_oracle.sql": "7f29fcaacfdf8a4386f4865b1a284339cc6764115c1d6453cfe9b5fd86e23d9a",
+    "DOC/RRLDataDownloads_ERD.jpg": "7312eb16a1b4a96789afcdc33d7e84d8c3ed3858fcef8585e71c0bf3131699b8",
+    "LICENCE.TXT": "97c14729eb0ef4fe5f1804985d8274a68e8cd0074a531e7311dd70e76ff6a9e3"
+  },
+  "operator_sites_sha256": "de6ddbc3940d900bc1bbd7925771e1cfcb4e57caf23fd464349676f73f257be7"
+}

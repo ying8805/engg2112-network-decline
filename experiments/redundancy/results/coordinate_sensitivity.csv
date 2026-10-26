@@ -1,0 +1,4 @@
+radius_km,perturbation_metres,regions_with_changed_operator_count,regions
+5,100,14,410
+10,100,0,410
+20,100,0,410

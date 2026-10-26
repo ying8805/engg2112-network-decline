@@ -1,0 +1,57 @@
+{
+  "status": "completed_modelled_population_comparison",
+  "source_url": "https://www.abs.gov.au/statistics/people/population/regional-population/2023-24/GEOTIFF.zip",
+  "source_page": "https://www.abs.gov.au/statistics/people/population/regional-population/2023-24",
+  "methodology_url": "https://www.abs.gov.au/methodologies/regional-population-methodology/2023-24",
+  "source_sha256": "833e00886fedf9b9da146d30a255d22e242f82c8a914b28770e4f7944e00d720",
+  "source_bytes": 1204327,
+  "raster_member": "GEOTIFF/apg24e_1_0_0.tif",
+  "population_year": 2024,
+  "source_crs": "EPSG:3577 GDA94 / Australian Albers",
+  "access_date_sydney": "2026-10-26",
+  "cell_size_metres": 1000,
+  "nodata": -1,
+  "source_country_population_sum": 27194097.40897712,
+  "assignment": "Each raster cell once to zoom-12 grid containing its centre, conditional on centre in strict NSW polygon; no SA2 populations repeated",
+  "datum": "Albers GRS80 inverse from embedded parameters; GDA94 coordinates used with WGS84 grid numeric approximation at kilometre resolution",
+  "scenarios": [
+    {
+      "scenario": "centre",
+      "unique_valid_cells_assigned": 26192,
+      "population_sum": 7218789.485317871
+    },
+    {
+      "scenario": "southwest",
+      "unique_valid_cells_assigned": 26128,
+      "population_sum": 7181794.978597656
+    },
+    {
+      "scenario": "northwest",
+      "unique_valid_cells_assigned": 26015,
+      "population_sum": 7246057.6111314595
+    },
+    {
+      "scenario": "southeast",
+      "unique_valid_cells_assigned": 26200,
+      "population_sum": 6913862.365643427
+    },
+    {
+      "scenario": "northeast",
+      "unique_valid_cells_assigned": 26178,
+      "population_sum": 7001799.317795843
+    }
+  ],
+  "display_rounding": "Two significant figures; positive totals below 100 displayed <100",
+  "coverage_definition": "Valid raster-cell centres / all raster-cell centres within the selected grid and strict NSW polygon, not percentage of NSW residents",
+  "population_growth_investigation": "Source manifest inspected; raw ERP workbooks absent. AP results unused. SA2 ERP not apportioned uniformly; official finer-scale population grid used instead.",
+  "limitations": [
+    "ABS modelled 2024 population, not enumerated 1km counts or 2026 population.",
+    "Cells straddling grid/state borders use centre assignment; four +/-500m corner scenarios quantify sensitivity, not confidence intervals.",
+    "Whole O4 grid inherits the operator count at its centre; residents may be farther from infrastructure.",
+    "Only O4 observed NSW grids are summarized, not statewide population coverage."
+  ],
+  "inputs": {
+    "region_redundancy.csv": "32cf95bca58ff9d2c0051bba0d205d676f32e54d086800fa9fee1df983211f50",
+    "region_performance.csv": "43e1447f3a37b4a039d44be6ae7e839e6a1431d82a460696f443ce3a1f6465f5"
+  }
+}

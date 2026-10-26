@@ -1,0 +1,21 @@
+private/
+raw/
+work/
+__pycache__/
+# Local history/diagnostics and superseded presentation exports.
+figures/
+CURRENT_SOURCE_REVIEW.md
+SUBMISSION_AUDIT.md
+results/audit_*.csv
+results/submission_audit.json
+provenance/test_output.txt
+scripts/submission_audit.py
+scripts/verify.py
+scripts/audit_original_panel.py
+scripts/build_deliverables.py
+results/panel_rebuild_quarters.csv
+results/panel_rebuild_remoteness.csv
+results/panel_rebuild_validation.json
+results/COMPARISON.md
+results/latest_quarter_comparison.csv
+results/remoteness_comparison.csv

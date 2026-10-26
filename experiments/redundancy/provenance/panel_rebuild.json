@@ -1,0 +1,606 @@
+{
+  "status": "complete",
+  "output": "data/panel.csv",
+  "sha256": "55f3a90de29156af2ae1320029cc27aa5b42ddfc5e53ba73e509f803c01a040a",
+  "rows": 8873,
+  "regions": 768,
+  "quarters": 29,
+  "minimum_tests": 50,
+  "region_zoom": 12,
+  "bounding_box": {
+    "xmin": 141.0,
+    "xmax": 154.0,
+    "ymin": -37.6,
+    "ymax": -28.1
+  },
+  "state_filter_applied": false,
+  "model_history_filter_applied": false,
+  "source_hashes": {
+    "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+    "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+    "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+  },
+  "sources": [
+    {
+      "year": 2019,
+      "quarter": 1,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2019/quarter=1/2019-01-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"2f029831c69d4c339c850e2d86d73da6-18\"",
+        "Last-Modified": "Thu, 25 Aug 2022 21:04:01 GMT",
+        "Content-Length": "148611294"
+      },
+      "acquired_utc": "2026-10-26T11:27:57.041540+00:00",
+      "rows": 271,
+      "seconds": 47.22380819998216,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "21a7c3dcdd86449e8725d21ca921a7753c5ad211f97d587f136953ab1e074d95",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2019,
+      "quarter": 2,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2019/quarter=2/2019-04-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"ed7aabcd611c1b51276e795c3c55b045-19\"",
+        "Last-Modified": "Thu, 25 Aug 2022 21:04:03 GMT",
+        "Content-Length": "154034407"
+      },
+      "acquired_utc": "2026-10-26T11:23:26.896701+00:00",
+      "rows": 262,
+      "seconds": 111.58187759999419,
+      "aggregate_sha256": "25bf486dac04c01ca34573dde8c3fd2349787eb1df1b795f9ac1de788810b3d0",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2019,
+      "quarter": 3,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2019/quarter=3/2019-07-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"baf613f8c586f1670a596d629f2acd59-23\"",
+        "Last-Modified": "Thu, 25 Aug 2022 21:04:04 GMT",
+        "Content-Length": "184820230"
+      },
+      "acquired_utc": "2026-10-26T11:31:42.480828+00:00",
+      "rows": 316,
+      "seconds": 271.9958599000238,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "581ae2facb7593c8a66f83459925ca9ae335802812679f55ecc536720def222b",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2019,
+      "quarter": 4,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2019/quarter=4/2019-10-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"a9cc2e8dd163d33a252584423f111af3-21\"",
+        "Last-Modified": "Thu, 25 Aug 2022 21:04:06 GMT",
+        "Content-Length": "175335646"
+      },
+      "acquired_utc": "2026-10-26T11:31:05.101833+00:00",
+      "rows": 327,
+      "seconds": 235.3211817999836,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "aa80322fd8525dba480d8afa164ca72a19b5f3bd10ec0a8f612ce6cb952f7254",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2020,
+      "quarter": 1,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2020/quarter=1/2020-01-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"930781d477ad57c7548a74eaaaf23cdb-23\"",
+        "Last-Modified": "Mon, 01 Apr 2024 05:52:47 GMT",
+        "Content-Length": "189988511"
+      },
+      "acquired_utc": "2026-10-26T11:28:04.099791+00:00",
+      "rows": 341,
+      "seconds": 54.32599119999213,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "71eeff407bf090c923547a5915e7b894e278e3ca271a6e252fe5b53b053c3e90",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2020,
+      "quarter": 2,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2020/quarter=2/2020-04-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"df3e545a46c20e795434340487fa69bc-24\"",
+        "Last-Modified": "Mon, 01 Apr 2024 06:40:04 GMT",
+        "Content-Length": "199312810"
+      },
+      "acquired_utc": "2026-10-26T11:27:39.417423+00:00",
+      "rows": 350,
+      "seconds": 26.31468940002378,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "fd70ce135fd278d7293b7c7d861bea73ca7b52e051265b0a991e07efa47fcd0d",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2020,
+      "quarter": 3,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2020/quarter=3/2020-07-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"0478a789402af4280783c6f5b496cc14-26\"",
+        "Last-Modified": "Mon, 01 Apr 2024 15:15:02 GMT",
+        "Content-Length": "213172798"
+      },
+      "acquired_utc": "2026-10-26T11:28:05.805169+00:00",
+      "rows": 340,
+      "seconds": 52.8939741999493,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "47226c079c657d9dfaf4079e589efff80034a06d391e95ccb31377dec1089f83",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2020,
+      "quarter": 4,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2020/quarter=4/2020-10-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"21a82e7bffa7aaf730dfbb74c29f8d0d-25\"",
+        "Last-Modified": "Mon, 01 Apr 2024 18:03:40 GMT",
+        "Content-Length": "206365569"
+      },
+      "acquired_utc": "2026-10-26T11:28:37.149377+00:00",
+      "rows": 349,
+      "seconds": 56.392526099982206,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "26227fd0049efbb03a175c760bcd7b618af76e3125b60d26282acaabc5419c00",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2021,
+      "quarter": 1,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2021/quarter=1/2021-01-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"bf4a733d65a9949541532114f12385b0-25\"",
+        "Last-Modified": "Mon, 01 Apr 2024 02:39:45 GMT",
+        "Content-Length": "205713556"
+      },
+      "acquired_utc": "2026-10-26T11:29:12.042584+00:00",
+      "rows": 358,
+      "seconds": 74.22992829995928,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "393159d4a3f178e8cbc47b1d525ac25dcf45608b22400bcde0e3816e18f73515",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2021,
+      "quarter": 2,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2021/quarter=2/2021-04-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"7f1b31bde83d0062c0f4f461ae247fff-26\"",
+        "Last-Modified": "Mon, 01 Apr 2024 03:36:27 GMT",
+        "Content-Length": "211627891"
+      },
+      "acquired_utc": "2026-10-26T11:28:44.155712+00:00",
+      "rows": 365,
+      "seconds": 39.308007700019516,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "4e49b3451b52f28df1e329f82d2c0ab83a3fb1c24033b83a6853a7839a73fdfe",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2021,
+      "quarter": 3,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2021/quarter=3/2021-07-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"8448cbb4c36f27e009abd2245bdc1ee4-25\"",
+        "Last-Modified": "Thu, 25 Aug 2022 21:04:18 GMT",
+        "Content-Length": "204447354"
+      },
+      "acquired_utc": "2026-10-26T11:33:17.050162+00:00",
+      "rows": 329,
+      "seconds": 310.38536209997255,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "b61bd2fcd33631fc1e38b8461a96a3d42df545bf259189fb3594df6312210f03",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2021,
+      "quarter": 4,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2021/quarter=4/2021-10-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"422b2404fc8ef34ba1d8b4747025ae41-25\"",
+        "Last-Modified": "Mon, 01 Apr 2024 04:58:37 GMT",
+        "Content-Length": "206255624"
+      },
+      "acquired_utc": "2026-10-26T11:29:34.891718+00:00",
+      "rows": 347,
+      "seconds": 56.984884799981955,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "93a24b76fdc3c63ab762a648907c156b28052d58fc09a1859f6c8e582cadbead",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2022,
+      "quarter": 1,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2022/quarter=1/2022-01-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"5442bf7454b159b154878fa907dc41e0-23\"",
+        "Last-Modified": "Sun, 31 Mar 2024 22:19:44 GMT",
+        "Content-Length": "190719774"
+      },
+      "acquired_utc": "2026-10-26T11:30:16.755598+00:00",
+      "rows": 334,
+      "seconds": 91.85249120002845,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "adc47192ab9b9fcdea7a8b966cfcbdbbc60c6ccd897ba479e0ffd02c73c9adb3",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2022,
+      "quarter": 2,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2022/quarter=2/2022-04-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"1e28693a405faf164b02b30b024a266d-24\"",
+        "Last-Modified": "Sun, 31 Mar 2024 23:13:52 GMT",
+        "Content-Length": "201249213"
+      },
+      "acquired_utc": "2026-10-26T11:29:52.998607+00:00",
+      "rows": 325,
+      "seconds": 40.17945239995606,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "1ab2d2df5d19bede7eaf985620bf9d42085800d0a0fee3fbd323e5fb090ec287",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2022,
+      "quarter": 3,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2022/quarter=3/2022-07-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"abb2d840c712ea7660ada8718d125c01-26\"",
+        "Last-Modified": "Mon, 01 Apr 2024 00:23:05 GMT",
+        "Content-Length": "213928694"
+      },
+      "acquired_utc": "2026-10-26T11:30:28.913181+00:00",
+      "rows": 318,
+      "seconds": 53.2824906000169,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "97b4ef860162de45d8df2902c60fcfe002f9b8407bab4bd40ce0c85608cbaf9d",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2022,
+      "quarter": 4,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2022/quarter=4/2022-10-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"26fe9a0ebf536d3d4d7da4101251b2ea-25\"",
+        "Last-Modified": "Mon, 01 Apr 2024 02:19:08 GMT",
+        "Content-Length": "205978993"
+      },
+      "acquired_utc": "2026-10-26T11:30:21.650430+00:00",
+      "rows": 305,
+      "seconds": 27.908815500035416,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "4146c823207008264ee16f8bf5815ecf08e5f9a680b29c4c9590072639258cbd",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2023,
+      "quarter": 1,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2023/quarter=1/2023-01-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"ed3c287aeaaf6a47505102ee1a3797ca-24\"",
+        "Last-Modified": "Sun, 31 Mar 2024 20:55:47 GMT",
+        "Content-Length": "201049824"
+      },
+      "acquired_utc": "2026-10-26T11:30:29.502966+00:00",
+      "rows": 306,
+      "seconds": 11.995244099991396,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "db27f265012009345dad51a9367284211691c5903845f0fbad9251db21cde45a",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2023,
+      "quarter": 2,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2023/quarter=2/2023-04-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"c2a0fac57b0bb23882447c3a45cf1b32-25\"",
+        "Last-Modified": "Sun, 31 Mar 2024 04:01:34 GMT",
+        "Content-Length": "209226707"
+      },
+      "acquired_utc": "2026-10-26T11:31:04.758405+00:00",
+      "rows": 291,
+      "seconds": 42.35279830003856,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "b9a9512adebdc82a10d38f824614dab28f9aa5a93626e7eedd7ddafbab168b12",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2023,
+      "quarter": 3,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2023/quarter=3/2023-07-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"c6030a648032f6e20c66b5b965265b69-26\"",
+        "Last-Modified": "Wed, 11 Oct 2023 17:30:16 GMT",
+        "Content-Length": "216912880"
+      },
+      "acquired_utc": "2026-10-26T11:31:16.602031+00:00",
+      "rows": 288,
+      "seconds": 46.92396149999695,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "b548f4f0c034300f699da888b10442161b5b73e3e030f0c14e11d0d96ff09438",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2023,
+      "quarter": 4,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2023/quarter=4/2023-10-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"db714910ac870901582fde257deecb28-25\"",
+        "Last-Modified": "Mon, 08 Jan 2024 20:14:21 GMT",
+        "Content-Length": "205047379"
+      },
+      "acquired_utc": "2026-10-26T11:30:59.711210+00:00",
+      "rows": 311,
+      "seconds": 29.45258370001102,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "ede450ac8275a3caa0fca5d0b5d3d05c051d7d213b848ec08dc7ea1a58c8cec2",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2024,
+      "quarter": 1,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2024/quarter=1/2024-01-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"689faccc0f40726239cf4a39a1a71864-24\"",
+        "Last-Modified": "Wed, 03 Apr 2024 01:37:34 GMT",
+        "Content-Length": "200294408"
+      },
+      "acquired_utc": "2026-10-26T11:31:18.102094+00:00",
+      "rows": 320,
+      "seconds": 17.631631700030994,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "17fac3caf18ac12b1cb06cf4b8fc1a2e6d88b34b039ada5df250ce9f3d84e355",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2024,
+      "quarter": 2,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2024/quarter=2/2024-04-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"c18a24ca096b80f7f1e1b70c851df144-25\"",
+        "Last-Modified": "Tue, 16 Jul 2024 16:39:10 GMT",
+        "Content-Length": "203060783"
+      },
+      "acquired_utc": "2026-10-26T11:31:50.094885+00:00",
+      "rows": 273,
+      "seconds": 44.5349379000254,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "65540da14da3bc349b4ed13f7d6f2021a5545089a246623a3ebb856e2eeef070",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2024,
+      "quarter": 3,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"b89300c9656c81430e6055c88c16238e-25\"",
+        "Last-Modified": "Mon, 14 Oct 2024 19:44:40 GMT",
+        "Content-Length": "206838799"
+      },
+      "acquired_utc": "2026-10-26T11:31:53.043944+00:00",
+      "rows": 283,
+      "seconds": 47.217377300024964,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "b1f9277fd4e0b15fbb1d221ffb6e4bb48ab37e90b587b9ecbeddb3919f0879ee",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2024,
+      "quarter": 4,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2024/quarter=4/2024-10-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"e9f7c792335ea5e417231a0a3757a888-24\"",
+        "Last-Modified": "Fri, 03 Jan 2025 01:01:01 GMT",
+        "Content-Length": "195139957"
+      },
+      "acquired_utc": "2026-10-26T11:31:56.479193+00:00",
+      "rows": 270,
+      "seconds": 39.1120047000004,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "043c579ee870674a37f5370a9e71adf353c3e3ec17e959273448662738ce7e5b",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2025,
+      "quarter": 1,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2025/quarter=1/2025-01-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"efdadac520f1d7bb75ae9cf4c518508c-23\"",
+        "Last-Modified": "Thu, 03 Apr 2025 00:24:15 GMT",
+        "Content-Length": "186490624"
+      },
+      "acquired_utc": "2026-10-26T11:32:01.998670+00:00",
+      "rows": 276,
+      "seconds": 43.169991999980994,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "c12aa596ff34ded4f671d6a523c23e54007d1dab7eb8662e43cdfc01e1e4919d",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2025,
+      "quarter": 2,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2025/quarter=2/2025-04-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"74ae7f2017beea35139074089970a0e0-24\"",
+        "Last-Modified": "Thu, 03 Jul 2025 00:20:51 GMT",
+        "Content-Length": "194093178"
+      },
+      "acquired_utc": "2026-10-26T11:31:59.732899+00:00",
+      "rows": 240,
+      "seconds": 16.287980399967637,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "6c0e2913ca3ca076fe2da9ee2983f78a103dcfc8339584e7405b8a656d1474bc",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2025,
+      "quarter": 3,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2025/quarter=3/2025-07-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"6199f92187c6e8af838cf0bb0cf77794-23\"",
+        "Last-Modified": "Fri, 03 Oct 2025 00:21:57 GMT",
+        "Content-Length": "188770845"
+      },
+      "acquired_utc": "2026-10-26T11:32:27.163816+00:00",
+      "rows": 236,
+      "seconds": 36.30502199998591,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "309caf626895bc80ec6ed64a7abe0c343b62f7f92885b13d74f005a4318f6c1e",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2025,
+      "quarter": 4,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2025/quarter=4/2025-10-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"9d568aa5d7a56dc68cb6b718bfb95077-22\"",
+        "Last-Modified": "Sat, 03 Jan 2026 00:12:25 GMT",
+        "Content-Length": "182319554"
+      },
+      "acquired_utc": "2026-10-26T11:32:27.320979+00:00",
+      "rows": 266,
+      "seconds": 33.49073959997622,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "4e51ad2ffc0911705d0c641f41228d6b9f6ac22818b257aa8a95a28c760576e7",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    },
+    {
+      "year": 2026,
+      "quarter": 1,
+      "url": "https://ookla-open-data.s3.amazonaws.com/parquet/performance/type=mobile/year=2026/quarter=1/2026-01-01_performance_mobile_tiles.parquet",
+      "source_headers": {
+        "ETag": "\"a2a2c8cd8111cf7ae0e65f4c6d2dac02-21\"",
+        "Last-Modified": "Mon, 13 Apr 2026 19:04:39 GMT",
+        "Content-Length": "175330099"
+      },
+      "acquired_utc": "2026-10-26T11:32:35.942873+00:00",
+      "rows": 276,
+      "seconds": 38.67966589995194,
+      "transport": "original DuckDB httpfs remote Parquet query",
+      "aggregate_sha256": "9b0736ca52692f9a4b680951e790171a102dd5411fa4264415a42616e68a803e",
+      "source_hashes": {
+        "build_panel.py": "07eea80f823a2bcd27f2c39f44e8d78b1639d24c386c910dbf3a0a38ad3b4a2a",
+        "fetch_ookla.py": "1c424f717b9d259f93bb513c24b00502d0350b0581284d3dbf3e1c4b529c9d5d",
+        "quadkey.py": "56b8eb02ea4ef41dd215ff0079e9accd5b96029a685f50a9446229e03293e50f"
+      }
+    }
+  ],
+  "validation": "All quarters, unique keys, coordinates, minimum tests, predecessor/gap handling and decline labels passed",
+  "historical_bytes_identical_to_team_original": "Not established; provider data may be revised"
+}

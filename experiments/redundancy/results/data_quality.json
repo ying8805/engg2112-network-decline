@@ -1,0 +1,61 @@
+{
+  "status": "exploratory_complete",
+  "blockers": [],
+  "regions_analysed_for_redundancy": 410,
+  "observed_rows": 4471,
+  "eligible_windows": 3198,
+  "eligible_regions": 185,
+  "persistent_raw_declines": 180,
+  "unassessable_windows": 1273,
+  "unknown_remoteness_regions": 3,
+  "invalid_download_rows": 0,
+  "geography": {
+    "New South Wales": 410,
+    "Victoria": 171,
+    "Queensland": 110,
+    "unmatched": 58,
+    "Australian Capital Territory": 13,
+    "South Australia": 6
+  },
+  "snapshot_date": "2026-10-26",
+  "panel_sha256": "55f3a90de29156af2ae1320029cc27aa5b42ddfc5e53ba73e509f803c01a040a",
+  "remoteness_sha256": "cf7636f74c9610c53a68f44646a2ea71c92a790a57ecc41555f8260a75a5b49f",
+  "raw_archive_sha256": "9da21e6adb091a867d330513afe6afe01c6eab1b17b640a27ce7ed3545164faf",
+  "trained_model": false,
+  "historical_infrastructure_assumed": false,
+  "coordinate_method": "GDA94 decimal-degree sites and WGS84 panel centres used in mean-Earth haversine approximation; no exact datum transform claimed. +/-100m sensitivity supplied; unknown site precision not bounded.",
+  "attribution": "Based on Australian Communications and Media Authority information",
+  "limits": [
+    "Spectrum registrations are mobile-compatible candidates, not verified cellular deployments.",
+    "Site counts are coordinate-deduplicated registry locations; nearby-location bounds are not validated physical towers.",
+    "Strict state containment excludes unmatched offshore/coastal centroids; ACT excluded.",
+    "No defensible generation indicator; possible_5g is unknown throughout.",
+    "Historical associations with a recent snapshot are descriptive, not predictive or causal."
+  ],
+  "packages": {
+    "duckdb": "1.5.5",
+    "pandas": "2.3.1",
+    "numpy": "2.3.2",
+    "scikit-learn": "1.7.2",
+    "matplotlib": "3.10.6",
+    "requests": "2.34.2"
+  },
+  "right_censored_baseline_rows": 281,
+  "mature_unassessable_baseline_rows": 992,
+  "official_remoteness_region_counts": {
+    "Inner Regional Australia": 249,
+    "Major Cities of Australia": 84,
+    "Outer Regional Australia": 69,
+    "Remote Australia": 4,
+    "Unknown": 3,
+    "Very Remote Australia": 1
+  },
+  "official_remoteness_eligible_windows": {
+    "Inner Regional Australia": 1205,
+    "Major Cities of Australia": 1836,
+    "Outer Regional Australia": 104,
+    "Remote Australia": 2,
+    "Unknown": 51,
+    "Very Remote Australia": 0
+  }
+}

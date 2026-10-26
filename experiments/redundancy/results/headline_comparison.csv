@@ -1,0 +1,13 @@
+radius_km,remoteness,quarter_index,category,regions,observed_rows,speed_regions,median_region_download_mbps,eligible_windows,eligible_regions,persistent_declines,decline_frequency,unassessable_windows
+5,all,all,zero-observed,33,64,33,17.534508771929826,15,2,2.0,0.13333333333333333,49
+5,all,all,single-observed,21,30,21,20.28135555555556,0,0,0.0,,30
+5,all,all,two-observed,22,30,22,40.052595923064274,0,0,0.0,,30
+5,all,all,three-observed,334,4347,334,93.74859066315204,3183,183,178.0,0.055922086082312285,1164
+10,all,all,zero-observed,1,1,1,2.8341153846153846,0,0,0.0,,1
+10,all,all,single-observed,10,13,10,18.962028293241698,0,0,0.0,,13
+10,all,all,two-observed,10,13,10,36.49853896103896,0,0,0.0,,13
+10,all,all,three-observed,389,4444,389,83.14835300546449,3198,185,180.0,0.05628517823639775,1246
+20,all,all,zero-observed,0,0,0,,0,0,0.0,,0
+20,all,all,single-observed,2,4,2,18.962028293241698,0,0,0.0,,4
+20,all,all,two-observed,3,4,3,40.60490540540541,0,0,0.0,,4
+20,all,all,three-observed,405,4463,405,80.64829729729729,3198,185,180.0,0.05628517823639775,1265

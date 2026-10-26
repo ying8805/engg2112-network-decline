@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "existing_tracked_files_checked": 224,
+  "existing_tracked_files_changed": [],
+  "raw_and_private_data_ignored": true,
+  "no_staged_changes_or_new_commits": true,
+  "independently_checked_regions": 410,
+  "independent_distance_counts": "passed at all three radii",
+  "independent_outcome_windows": "passed keyed future lookup",
+  "dashboard_schema_and_images": "passed",
+  "unit_tests": 20,
+  "panel_sha256": "55f3a90de29156af2ae1320029cc27aa5b42ddfc5e53ba73e509f803c01a040a",
+  "raw_archive_sha256": "9da21e6adb091a867d330513afe6afe01c6eab1b17b640a27ce7ed3545164faf",
+  "licence_attribution_present": true,
+  "caveat": "Registration classification is an explicit rule-based proxy, not field verification or certification of operational coverage."
+}
